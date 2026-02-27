@@ -1,15 +1,15 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`activity-box handles failure to update the Gist 1`] = `
-Array [
-  Array [
+exports[`activity-box > handles failure to update the Gist 1`] = `
+[
+  [
     [Error: 404],
   ],
 ]
 `;
 
-exports[`activity-box updates the Gist with the expected string 1`] = `
-Object {
+exports[`activity-box > updates the Gist with the expected string 1`] = `
+{
   "content": "❗️ Opened issue #1 in clippy/take-over-github
 🗣 Commented on #1 in clippy/take-over-github
 🎉 Merged PR #2 in clippy/take-over-github

@@ -2,35 +2,46 @@
   "name": "activity-box",
   "version": "0.0.1",
   "description": "⚡️📌️ Update a gist to contain your recent activity",
-  "author": "Jason Etcovitch <jasonetco@gmail.com>",
-  "license": "ISC",
-  "scripts": {
-    "test": "jest --coverage",
-    "format": "prettier --write ./index.js",
-    "prepare": "husky install"
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/JasonEtco/activity-box.git"
+    "url": "https://github.com/hlhc/activity-box.git"
   },
-  "dependencies": {
-    "actions-toolkit": "^6.0.1",
-    "dotenv": "^16.3.1",
-    "gist-box": "^0.3.1"
+  "license": "ISC",
+  "author": "Cyrus Ho <hello@cyrusho.me>",
+  "type": "module",
+  "scripts": {
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "prepare": "simple-git-hooks",
+    "test": "vitest run --coverage"
   },
-  "devDependencies": {
-    "husky": "^8.0.0",
-    "jest": "^26.6.3",
-    "nock": "^12.0.3",
-    "prettier": "^3.0.3",
-    "lint-staged": "^14.0.1"
-  },
-  "jest": {
-    "setupFiles": [
-      "<rootDir>/tests/setup.js"
-    ]
+  "simple-git-hooks": {
+    "pre-commit": "pnpx lint-staged"
   },
   "lint-staged": {
-    "*.{js,ts,json}": "prettier --write"
+    "*.{js,ts,json}": "pnpm lint:fix"
+  },
+  "dependencies": {
+    "@actions/core": "^3.0.0",
+    "@actions/github": "^9.0.0",
+    "@octokit/request": "^10.0.0",
+    "dotenv": "^17.3.1"
+  },
+  "devDependencies": {
+    "@vitest/coverage-v8": "^4.0.18",
+    "@vitest/ui": "4.0.18",
+    "lint-staged": "^16.2.7",
+    "oxlint": "^1.50.0",
+    "simple-git-hooks": "^2.13.1",
+    "vitest": "^4.0.18"
+  },
+  "packageManager": "pnpm@10.30.3",
+  "engines": {
+    "node": ">=24"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
   }
 }
